@@ -1,0 +1,23 @@
+version: '3.8'
+services:  
+  app: 
+    container_name: api-detector
+    image: api-detector
+    build: ./
+    ports: 
+      - "8080:8080"
+    environment:
+      - MYAPP_JDBC_URL=jdbc:postgresql://postgresdb:5432/phishing_dominios
+      - MYAPP_JDBC_USER=postgres
+      - MYAPP_JDBC_PASS=postgres
+    depends_on: 
+      - postgresdb
+  postgresqldb: 
+    image: postgres
+    ports: 
+      - "5432:5432"
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=phishing_dominios
