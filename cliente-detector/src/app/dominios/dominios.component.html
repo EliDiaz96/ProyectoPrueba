@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-4">
+      <label for="staticConsulta" class="visually-hidden">Consulta</label>
+      <input type="text" readonly class="form-control-plaintext" id="staticConsulta"
+        value="Digite el dominio a consultar">
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-4">
+      <label for="inputDominio" class="visually-hidden">Dominio</label>
+      <input type="text" #box class="form-control" id="inputDominio" placeholder="Dominio">
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <button class="btn btn-primary mb-3" style="margin-top: 10px;" (click)="onClickMe(box.value)">Aceptar</button>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-5">
+      <label for="staticValue" class="visually-hidden">Respuesta</label>
+      <input type="text" readonly class="form-control-plaintext" id="staticValue" value={{values}} *ngIf='values!= ""'>
+    </div>
+  </div>
+</div>
